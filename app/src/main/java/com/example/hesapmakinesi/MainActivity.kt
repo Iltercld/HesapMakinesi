@@ -96,14 +96,31 @@ class MainActivity : AppCompatActivity()
             binding.textView1.text = "${binding.textView1.text}" + "0"
         }
     }
-
-    fun buttonarti(view: View) {
+    fun buttonnokta(view: View)
+    {
         if (binding.textView1.text.toString().isEmpty() || binding.textView1.text.last() == '+'
             || binding.textView1.text.last() == '-' || binding.textView1.text.last() == '*'
-            || binding.textView1.text.last() == '/'
-        ) {
+            || binding.textView1.text.last() == '/' || binding.textView1.text.last() == '.')
+        {
             return
-        } else {
+        }
+        else
+        {
+            val edittext = '.'
+            binding.textView1.text = "${binding.textView1.text}" + "$edittext"
+        }
+    }
+
+    fun buttonarti(view: View)
+    {
+        if (binding.textView1.text.toString().isEmpty() || binding.textView1.text.last() == '+'
+            || binding.textView1.text.last() == '-' || binding.textView1.text.last() == '*'
+            || binding.textView1.text.last() == '/')
+        {
+            return
+        }
+        else
+        {
             val edittext = '+'
             binding.textView1.text = "${binding.textView1.text}" + "$edittext"
         }
@@ -157,7 +174,7 @@ class MainActivity : AppCompatActivity()
     {
         if (binding.textView1.text.toString().isEmpty() || binding.textView1.text.last() == '+'
             || binding.textView1.text.last() == '-' || binding.textView1.text.last() == '*'
-            || binding.textView1.text.last() == '/')
+            || binding.textView1.text.last() == '/' || binding.textView1.text.last() == '.')
         {
             return
         }
@@ -167,7 +184,7 @@ class MainActivity : AppCompatActivity()
             var sonuc1 = ""
             for (char in binding.textView1.text)
             {
-                if (char.isDigit())
+                if (char.isDigit() || char =='.')
                 {
                     sonuc1 += char
                 }
