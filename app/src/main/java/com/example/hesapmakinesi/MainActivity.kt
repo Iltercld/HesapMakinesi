@@ -2,9 +2,7 @@ package com.example.hesapmakinesi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import com.example.hesapmakinesi.databinding.ActivityMainBinding
-
 
 
 class MainActivity : AppCompatActivity()
@@ -16,238 +14,90 @@ class MainActivity : AppCompatActivity()
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-    }
-    fun buttonone(view: View) {
-        if (binding.textView1.toString().isEmpty()) {
-            binding.textView1.text = "1"
-        } else {
-            binding.textView1.text = "${binding.textView1.text}" + "1"
+        val buttonone=binding.button1
+        val buttontwo=binding.button2
+        val buttonthree=binding.button3
+        val buttonfour=binding.button4
+        val buttonfive=binding.button5
+        val buttonsix=binding.button6
+        val buttonseven=binding.button7
+        val buttoneight=binding.button8
+        val buttonnine=binding.button9
+        val buttonzero=binding.button0
+        val buttonarti=binding.buttonarti
+        val buttoneksi=binding.buttoneksi
+        val buttoncarpi=binding.buttoncarpi
+        val buttonbolu=binding.buttonbolu
+        val buttonnokta=binding.buttonnokta
+        val buttonsil=binding.buttonsil
+        val buttonesittir=binding.buttonesittir
+        buttonone.setOnClickListener{
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslar1()
         }
-    }
-
-    fun buttontwo(view: View) {
-        if (binding.textView1.text.toString().isEmpty()) {
-            binding.textView1.text = "2"
-        } else {
-            binding.textView1.text = "${binding.textView1.text}" + "2"
+        buttontwo.setOnClickListener{
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslar2()
         }
-    }
-
-    fun buttonthree(view: View) {
-        if (binding.textView1.text.toString().isEmpty()) {
-            binding.textView1.text = "3"
-        } else {
-            binding.textView1.text = "${binding.textView1.text}" + "3"
+        buttonthree.setOnClickListener{
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslar3()
         }
-    }
-
-    fun buttonfour(view: View) {
-        if (binding.textView1.text.toString().isEmpty()) {
-            binding.textView1.text = "4"
-        } else {
-            binding.textView1.text = "${binding.textView1.text}" + "4"
+        buttonfour.setOnClickListener{
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslar4()
         }
-    }
-
-    fun buttonfive(view: View) {
-        if (binding.textView1.text.toString().isEmpty()) {
-            binding.textView1.text = "5"
-        } else {
-            binding.textView1.text = "${binding.textView1.text}" + "5"
+        buttonfive.setOnClickListener{
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslar5()
         }
-    }
-
-    fun buttonsix(view: View) {
-        if (binding.textView1.text.toString().isEmpty()) {
-            binding.textView1.text = "6"
-        } else {
-            binding.textView1.text = "${binding.textView1.text}" + "6"
+        buttonsix.setOnClickListener{
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslar6()
         }
-    }
-
-    fun buttonseven(view: View) {
-        if (binding.textView1.text.toString().isEmpty()) {
-            binding.textView1.text = "7"
-        } else {
-            binding.textView1.text = "${binding.textView1.text}" + "7"
+        buttonseven.setOnClickListener{
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslar7()
         }
-    }
-
-    fun buttoneight(view: View) {
-        if (binding.textView1.text.toString().isEmpty()) {
-            binding.textView1.text = "8"
-        } else {
-            binding.textView1.text = "${binding.textView1.text}" + "8"
+        buttoneight.setOnClickListener{
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslar8()
         }
-    }
-
-    fun buttonnine(view: View) {
-        if (binding.textView1.text.toString().isEmpty()) {
-            binding.textView1.text = "9"
-        } else {
-            binding.textView1.text = "${binding.textView1.text}" + "9"
+        buttonnine.setOnClickListener{
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslar9()
         }
-    }
-
-    fun buttonzero(view: View) {
-        if (binding.textView1.text.toString().isEmpty()) {
-            binding.textView1.text = "0"
-        } else {
-            binding.textView1.text = "${binding.textView1.text}" + "0"
+        buttonzero.setOnClickListener {
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslar0()
         }
-    }
-    fun buttonnokta(view: View)
-    {
-        if (binding.textView1.text.toString().isEmpty() || binding.textView1.text.last() == '+'
-            || binding.textView1.text.last() == '-' || binding.textView1.text.last() == '*'
-            || binding.textView1.text.last() == '/' || binding.textView1.text.last() == '.')
-        {
-            return
+        buttonarti.setOnClickListener {
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslararti()
         }
-        else
-        {
-            val edittext = '.'
-            binding.textView1.text = "${binding.textView1.text}" + "$edittext"
+        buttoneksi.setOnClickListener {
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslareksi()
         }
-    }
-
-    fun buttonarti(view: View)
-    {
-        if (binding.textView1.text.toString().isEmpty() || binding.textView1.text.last() == '+'
-            || binding.textView1.text.last() == '-' || binding.textView1.text.last() == '*'
-            || binding.textView1.text.last() == '/')
-        {
-            return
+        buttoncarpi.setOnClickListener {
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslarcarpi()
         }
-        else
-        {
-            val edittext = '+'
-            binding.textView1.text = "${binding.textView1.text}" + "$edittext"
+        buttonbolu.setOnClickListener {
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslarbolu()
         }
-    }
-
-    fun buttoneksi(view: View) {
-        if (binding.textView1.text.toString().isEmpty() || binding.textView1.text.last() == '+'
-            || binding.textView1.text.last() == '-' || binding.textView1.text.last() == '*'
-            || binding.textView1.text.last() == '/'
-        ) {
-            return
-        } else {
-            val edittext = '-'
-            binding.textView1.text = "${binding.textView1.text}" + "$edittext"
+        buttonnokta.setOnClickListener {
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslarnokta()
         }
-    }
-
-    fun buttoncarpi(view: View) {
-        if (binding.textView1.text.toString().isEmpty() || binding.textView1.text.last() == '+'
-            || binding.textView1.text.last() == '-' || binding.textView1.text.last() == '*'
-            || binding.textView1.text.last() == '/'
-        ) {
-            return
-        } else {
-            val edittext = '*'
-            binding.textView1.text = "${binding.textView1.text}" + "$edittext"
+        buttonsil.setOnClickListener {
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslarsil()
         }
-    }
-
-    fun buttonbolu(view: View) {
-        if (binding.textView1.text.toString().isEmpty() || binding.textView1.text.last() == '+'
-            || binding.textView1.text.last() == '-' || binding.textView1.text.last() == '*'
-            || binding.textView1.text.last() == '/'
-        ) {
-            return
-        } else {
-            val edittext = '/'
-            binding.textView1.text = "${binding.textView1.text}" + "$edittext"
-        }
-    }
-
-    fun buttondelete(view: View) {
-        val currentText = binding.textView1.text.toString()
-        if (currentText.isNotEmpty()) {
-            val newText = currentText.substring(0, currentText.length - 1)
-            binding.textView1.text = newText
-        }
-    }
-
-    fun buttonesittir(view: View)
-    {
-        if (binding.textView1.text.toString().isEmpty() || binding.textView1.text.last() == '+'
-            || binding.textView1.text.last() == '-' || binding.textView1.text.last() == '*'
-            || binding.textView1.text.last() == '/' || binding.textView1.text.last() == '.')
-        {
-            return
-        }
-        else
-        {
-            val dizi1 = mutableListOf<String>()
-            var sonuc1 = ""
-            for (char in binding.textView1.text)
-            {
-                if (char.isDigit() || char =='.')
-                {
-                    sonuc1 += char
-                }
-                else
-                {
-                    dizi1.add(sonuc1)
-                    sonuc1 = ""
-                    sonuc1 += char
-                    dizi1.add(sonuc1)
-                    sonuc1 = ""
-                }
-            }
-            dizi1.add(sonuc1)
-            for (i in 1 until dizi1.size step 2)
-            {
-                val sayi1=dizi1[i-1].toDouble()
-                val sayi2=dizi1[i+1].toDouble()
-                var sonuc1:String
-                if(dizi1[i]=="*")
-                {
-                    sonuc1="${sayi1*sayi2}"
-                    dizi1[i+1] = sonuc1
-                    dizi1[i]=""
-                    dizi1[i-1]=""
-                }
-                else if (dizi1[i]=="/")
-                {
-                    sonuc1="${sayi1/sayi2}"
-                    dizi1[i+1] = sonuc1
-                    dizi1[i]=""
-                    dizi1[i-1]=""
-                }
-            }
-            val temdizi=dizi1.filter { it.isNotEmpty() }.toMutableList()
-            for (i in 1 until temdizi.size step 2)
-            {
-                val sayi1=temdizi[i-1].toDouble()
-                val sayi2=temdizi[i+1].toDouble()
-                var sonuc2:String
-                if(temdizi[i]=="+")
-                {
-                    sonuc2="${sayi1+sayi2}"
-                    temdizi[i+1] = sonuc2
-                    temdizi[i]=""
-                    temdizi[i-1]=""
-                }
-                else if (temdizi[i]=="-")
-                {
-                    sonuc2="${sayi1-sayi2}"
-                    temdizi[i+1] = sonuc2
-                    temdizi[i]=""
-                    temdizi[i-1]=""
-                }
-                else
-                {
-                    sonuc2 = temdizi[i]
-                    temdizi[i + 1] = sonuc2
-                    temdizi[i] = ""
-                    temdizi[i - 1] = ""
-                }
-            }
-            val temdizi2=temdizi.filter { it.isNotEmpty() }.toMutableList()
-            binding.textView2.text="$temdizi2"
+        buttonesittir.setOnClickListener {
+            val hesaplama = Hesaplama(binding)
+            binding.textView2.text=hesaplama.buttonesittir()
         }
     }
 }
