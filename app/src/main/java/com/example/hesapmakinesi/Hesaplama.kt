@@ -1,8 +1,6 @@
 package com.example.hesapmakinesi
-
 import com.example.hesapmakinesi.databinding.ActivityMainBinding
 import java.text.DecimalFormat
-
 class Hesaplama(binding: ActivityMainBinding)
 {
     private var giris:String=binding.textView1.text.toString()
@@ -51,9 +49,7 @@ class Hesaplama(binding: ActivityMainBinding)
                     kullanicigirisdizi[karakter - 1] = ""
                 }
             }
-
             val temkullanicigirisdizi = kullanicigirisdizi.filter { it.isNotEmpty() }.toMutableList()
-
             for (karakter in 1 until temkullanicigirisdizi.size step 2)
             {
                 val sayi1 = temkullanicigirisdizi[karakter - 1].toDouble()
@@ -81,9 +77,7 @@ class Hesaplama(binding: ActivityMainBinding)
                     temkullanicigirisdizi[karakter - 1] = ""
                 }
             }
-
             val temkullanicigirisdizi2 = temkullanicigirisdizi.filter { it.isNotEmpty() }.toMutableList()
-
             val sonuc = temkullanicigirisdizi2.map { it.toDouble() }.joinToString(" ")
             {
                 val duzenle = DecimalFormat("#,###.###")
