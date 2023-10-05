@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity()
 
         val buttonherseysil=binding.buttonherseysil
 
+        val buttonparantez=binding.buttonparantez
+
         val numberbuttonlist= listOf(binding.button0,binding.button1,binding.button2,binding.button3,
             binding.button4,binding.button5,binding.button6,binding.button7,binding.button8,binding.button9)
 
@@ -35,18 +37,22 @@ class MainActivity : AppCompatActivity()
             operatorbutton.setOnClickListener { val tuslar=Tuslar(binding)
             binding.textView1.text=tuslar.tuslaroperator(operator=index)}
         }
-        buttonsil.setOnClickListener {
+        buttonparantez.setOnClickListener{
+            val tuslar = Tuslar(binding)
+            binding.textView1.text=tuslar.tuslarparantez()
+        }
+        buttonsil.setOnClickListener{
             val tuslar = Tuslar(binding)
             binding.textView1.text=tuslar.tuslarsil()
         }
-        buttonesittir.setOnClickListener {
-            val hesaplama = Hesaplama(binding)
-            binding.textView2.text=hesaplama.buttonesittir()
-        }
-        buttonherseysil.setOnClickListener {
+        buttonherseysil.setOnClickListener{
             val tuslar = Tuslar(binding)
             binding.textView1.text=tuslar.tuslarherseyisil()
             binding.textView2.text=tuslar.tuslarherseyisil()
+        }
+        buttonesittir.setOnClickListener{
+            val hesaplama = Hesaplama(binding)
+            binding.textView2.text=hesaplama.buttonesittir()
         }
     }
 }
