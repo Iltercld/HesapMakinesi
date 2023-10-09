@@ -240,7 +240,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
             android:onClick="buttonnokta"
-            android:text=","
+            android:text="."
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/button8"
             app:layout_constraintTop_toBottomOf="@+id/button9" />

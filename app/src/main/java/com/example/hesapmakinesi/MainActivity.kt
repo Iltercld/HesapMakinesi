@@ -11,22 +11,15 @@ class MainActivity : AppCompatActivity()
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
-        val buttonsil=binding.buttonsil
-
-        val buttonesittir=binding.buttonesittir
-
-        val buttonherseysil=binding.buttonherseysil
-
         val buttonparantez=binding.buttonparantez
-
+        val buttonsil=binding.buttonsil
+        val buttonherseysil=binding.buttonherseysil
+        val buttonesittir=binding.buttonesittir
         val numberbuttonlist= listOf(binding.button0,binding.button1,binding.button2,binding.button3,
             binding.button4,binding.button5,binding.button6,binding.button7,binding.button8,binding.button9)
-
         val operatorbuttonmap= mapOf(binding.buttonarti to "+",binding.buttoneksi to "-",
             binding.buttoncarpi to "*", binding.buttonbolu to "/", binding.buttonnokta to ".",
             binding.buttonyuzde to "%")
-
         for ((index,numberbutton) in numberbuttonlist.withIndex())
         {
             numberbutton.setOnClickListener {val tuslar=Tuslar(binding)

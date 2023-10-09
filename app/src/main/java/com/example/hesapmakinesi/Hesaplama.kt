@@ -1,11 +1,10 @@
 package com.example.hesapmakinesi
 import com.example.hesapmakinesi.databinding.ActivityMainBinding
-import java.text.DecimalFormat
 class Hesaplama(binding: ActivityMainBinding)
 {
     private var giris:String=binding.textView1.text.toString()
-    private val operator= listOf("+","-","*","/",",")
-    private val kullanicigirisdizi = mutableListOf<String>()
+    private val operator= listOf("+","-","*","/",".").toString()
+    private var kullanicigirisdizi = mutableListOf<String>()
     private var ekleme=""
     private var islem=""
     private var sayi1=0.0
@@ -16,79 +15,64 @@ class Hesaplama(binding: ActivityMainBinding)
         {
             return giris
         }
-        else
+        for (karakter in giris)
         {
-            for (karakter in giris)
+            when
             {
-                if (karakter.isDigit() || karakter == ',')
-                {
-                    ekleme += karakter
-                }
-                else
-                {
+                karakter.isDigit() || karakter == '.' -> ekleme += karakter
+                else -> {
                     kullanicigirisdizi.add(ekleme)
                     kullanicigirisdizi.add(karakter.toString())
                     ekleme = ""
                 }
             }
-            kullanicigirisdizi.add(ekleme)
-            for (karakter in 1 until kullanicigirisdizi.size step 2)
-            {
-                sayi1=kullanicigirisdizi[karakter - 1].toDouble()
-                if (kullanicigirisdizi[karakter]=="%" )
-                {
-                    islem="${sayi1/100}"
-                    kullanicigirisdizi[karakter]=islem
-                    kullanicigirisdizi[karakter - 1]=""
-                }
-            }
-            val temkullanicigirisdizi1 = kullanicigirisdizi.filter { it.isNotEmpty() }.toMutableList()
-            for (karakter in 1 until temkullanicigirisdizi1.size step 2)
-            {
-                sayi1 = temkullanicigirisdizi1[karakter - 1].toDouble()
-                sayi2 = temkullanicigirisdizi1[karakter + 1].toDouble()
-                if (temkullanicigirisdizi1[karakter] == "*")
-                {
-                    islem = "${sayi1 * sayi2}"
-                    temkullanicigirisdizi1[karakter + 1] = islem
-                    temkullanicigirisdizi1[karakter] = ""
-                    temkullanicigirisdizi1[karakter - 1] = ""
-                }
-                else if (temkullanicigirisdizi1[karakter] == "/")
-                {
-                    islem = "${sayi1 / sayi2}"
-                    temkullanicigirisdizi1[karakter + 1] = islem
-                    temkullanicigirisdizi1[karakter] = ""
-                    temkullanicigirisdizi1[karakter - 1] = ""
-                }
-            }
-            val temkullanicigirisdizi2 = temkullanicigirisdizi1.filter { it.isNotEmpty() }.toMutableList()
-            for (karakter in 1 until temkullanicigirisdizi2.size step 2)
-            {
-                 sayi1 = temkullanicigirisdizi2[karakter - 1].toDouble()
-                 sayi2 = temkullanicigirisdizi2[karakter + 1].toDouble()
-                if (temkullanicigirisdizi2[karakter] == "+")
-                {
-                    islem = "${sayi1 + sayi2}"
-                    temkullanicigirisdizi2[karakter + 1] = islem
-                    temkullanicigirisdizi2[karakter] = ""
-                    temkullanicigirisdizi2[karakter - 1] = ""
-                }
-                else if (temkullanicigirisdizi2[karakter] == "-")
-                {
-                    islem = "${sayi1 - sayi2}"
-                    temkullanicigirisdizi2[karakter + 1] = islem
-                    temkullanicigirisdizi2[karakter] = ""
-                    temkullanicigirisdizi2[karakter - 1] = ""
-                }
-            }
-            val temkullanicigirisdizi3 = temkullanicigirisdizi2.filter { it.isNotEmpty() }.toMutableList()
-            val sonuc = temkullanicigirisdizi3.map { it.toDouble() }.joinToString(" ")
-            {
-                val duzenle = DecimalFormat("#,###.###")
-                duzenle.format(it)
-            }
-            return sonuc
         }
+        kullanicigirisdizi.add(ekleme)
+        for (index in 1 until  kullanicigirisdizi.size step 2)
+        {
+            sayi1 = kullanicigirisdizi[index - 1].toDouble()
+            when (kullanicigirisdizi[index])
+            {
+                "%" -> {islem = (sayi1/100).toString()
+                kullanicigirisdizi[index] = islem
+                kullanicigirisdizi[index - 1] = ""}
+            }
+        }
+        val kullanicigirisdizi1 = kullanicigirisdizi.filter { it.isNotEmpty() }.toMutableList()
+        for (index in 1 until kullanicigirisdizi1.size step 2)
+        {
+            sayi1 = kullanicigirisdizi1[index - 1].toDouble()
+            sayi2 = kullanicigirisdizi1[index + 1].toDouble()
+            when (kullanicigirisdizi1[index])
+            {
+                "*" -> { islem = (sayi1 * sayi2).toString()
+                    kullanicigirisdizi1[index + 1] = islem
+                    kullanicigirisdizi1[index] = ""
+                    kullanicigirisdizi1[index - 1] = ""}
+                "/" -> { islem = (sayi1 / sayi2).toString()
+                    kullanicigirisdizi1[index + 1] = islem
+                    kullanicigirisdizi1[index] = ""
+                    kullanicigirisdizi1[index - 1] = ""}
+            }
+        }
+        val kullanicigirisdizi2 = kullanicigirisdizi1.filter { it.isNotEmpty() }.toMutableList()
+        for (index in 1 until kullanicigirisdizi2.size step 2)
+        {
+            sayi1 = kullanicigirisdizi2[index - 1].toDouble()
+            sayi2 = kullanicigirisdizi2[index + 1].toDouble()
+            when (kullanicigirisdizi2[index])
+            {
+                "+" -> { islem = (sayi1 + sayi2).toString()
+                    kullanicigirisdizi2[index + 1] = islem
+                    kullanicigirisdizi2[index] = ""
+                    kullanicigirisdizi2[index - 1] = ""}
+                "-" -> { islem = (sayi1 - sayi2).toString()
+                    kullanicigirisdizi2[index + 1] = islem
+                    kullanicigirisdizi2[index] = ""
+                    kullanicigirisdizi2[index - 1] = ""}
+            }
+        }
+        val kullanicigirisdizi3 = kullanicigirisdizi2.filter { it.isNotEmpty() }.toMutableList()
+        return kullanicigirisdizi3.toString()
     }
 }
