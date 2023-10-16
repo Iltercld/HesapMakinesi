@@ -10,6 +10,7 @@ class Tuslar(binding: ActivityMainBinding)
         when
         {
             giris.endsWith(")") -> giris += "*$sayi"
+            giris.endsWith("%") -> giris += "*$sayi"
             giris.isEmpty() -> giris = sayi
             else -> giris += sayi
         }
