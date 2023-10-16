@@ -53,12 +53,8 @@ class Hesaplama(binding: ActivityMainBinding)
         println(kullanicigirisdizi1)
         for (index in 1 until kullanicigirisdizi1.size step 2)
         {
-            if (kullanicigirisdizi1[index -1].isDigitsOnly()) {
-                sayi1 = kullanicigirisdizi1[index - 1].toDouble()
-            }
-            else if (kullanicigirisdizi1[index +1].isDigitsOnly()) {
-                sayi2 = kullanicigirisdizi1[index + 1].toDouble()
-            }
+            sayi1 = kullanicigirisdizi1[index - 1].toDouble()
+            sayi2 = kullanicigirisdizi1[index + 1].toDouble()
             when (kullanicigirisdizi1[index])
             {
                 "*" -> { islem = (sayi1 * sayi2).toString()
@@ -76,13 +72,8 @@ class Hesaplama(binding: ActivityMainBinding)
         println(kullanicigirisdizi2)
         for (index in 1 until kullanicigirisdizi2.size step 2)
         {
-            if (kullanicigirisdizi2[index -1].isDigitsOnly()) {
-                sayi1 = kullanicigirisdizi2[index - 1].toDouble()
-            }
-            else if (kullanicigirisdizi2[index +1].isDigitsOnly())
-            {
-                sayi2 = kullanicigirisdizi2[index + 1].toDouble()
-            }
+            sayi1 = kullanicigirisdizi2[index - 1].toDouble()
+            sayi2 = kullanicigirisdizi2[index + 1].toDouble()
             when (kullanicigirisdizi2[index])
             {
                 "+" -> { islem = (sayi1 + sayi2).toString()
