@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.hesapmakinesi"
+    namespace = "com.ilkproje.hesapmakinesi"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.hesapmakinesi"
+        applicationId = "com.ilkproje.hesapmakinesi"
         minSdk = 25
         targetSdk = 33
         versionCode = 1
